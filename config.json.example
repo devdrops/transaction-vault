@@ -1,0 +1,43 @@
+{
+  "title": "Transaction Vault Configuration Example File. Copy this file to `config.json` at the project root and edit it as you wish.",
+
+  "transport": "http",
+  "transports": {
+    "http": {
+      "addr": ""
+    },
+    "grpc": {
+      "addr": "",
+      "connection_timeout_in_ms": 500
+    }
+  },
+
+  "database": {
+    "main": {
+      "driver": "postgresql",
+      "host": "",
+      "port": "",
+      "user": "",
+      "password": "",
+      "ssl": false
+    },
+    "cache": {
+      "driver": "redis",
+      "host": "",
+      "port": "",
+      "user": "",
+      "password": "",
+      "ssl": false
+    }
+  },
+
+  "messaging": {
+    "main": {
+      "schema": "amqp",
+      "host": "",
+      "port": "",
+      "user": "",
+      "password": ""
+    }
+  }
+}
