@@ -1,6 +1,5 @@
 {
   "title": "Transaction Vault Configuration Example File. Copy this file to `config.json` at the project root and edit it as you wish.",
-
   "transport": "http",
   "transports": {
     "http": {
@@ -11,7 +10,6 @@
       "connection_timeout_in_ms": 500
     }
   },
-
   "database": {
     "main": {
       "driver": "postgresql",
@@ -30,7 +28,6 @@
       "ssl": false
     }
   },
-
   "messaging": {
     "main": {
       "schema": "amqp",

@@ -10,7 +10,7 @@ services:
       - .:/app
       - ./cache/go:/go/pkg/mod/cache
     working_dir: /app
-    env_file: ./.env
+    env_file: ./env/.env
     networks:
       - database-network
 
