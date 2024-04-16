@@ -1,0 +1,19 @@
+services:
+  api:
+    container_name: api
+    build:
+      context: ./env
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8081:8080"
+    volumes:
+      - .:/app
+      - ./cache/go:/go/pkg/mod/cache
+    working_dir: /app
+    env_file: ./.env
+    networks:
+      - database-network
+
+networks:
+  database-network:
+    driver: bridge
