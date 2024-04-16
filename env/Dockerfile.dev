@@ -2,8 +2,6 @@
 # Project's image, for local development only.
 FROM golang:1.22-alpine
 
-ENV GOPROXY https://proxy.golang.org
-
 RUN apk update && \
     apk upgrade && \
     apk add --no-cache git \
