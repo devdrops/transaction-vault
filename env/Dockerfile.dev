@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+
 ##########
 # Project's image, for local development only.
 FROM golang:1.22-alpine

@@ -26,6 +26,14 @@
       "user": "",
       "password": "",
       "ssl": false
+    },
+    "audit-logs": {
+      "driver": "mongodb",
+      "host": "",
+      "port": "",
+      "user": "",
+      "password": "",
+      "ssl": false
     }
   },
   "messaging": {

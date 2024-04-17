@@ -12,8 +12,52 @@ services:
     working_dir: /app
     env_file: ./env/.env
     networks:
-      - database-network
+      - audit-logs
+      - cache
+      - main-db
+
+  audit-logs:
+    container_name: audit-logs
+    image: mongo:7.0.8-jammy
+    ports:
+      - "27018:27017"
+    volumes:
+      - ./cache/mongo:/data/db
+    env_file: ./env/.env
+    networks:
+      - audit-logs
+
+  cache:
+    container_name: cache
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes: 
+      - ./cache/redis:/data
+    env_file: ./env/.env
+    networks:
+      - cache
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    
+  main-db:
+    container_name: main-db
+    build:
+      context: ./env
+      dockerfile: Dockerfile.db.dev
+    restart: always
+    volumes:
+      - ./cache/postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    env_file: ./env/.env
+    networks:
+      - main-db
 
 networks:
-  database-network:
+  audit-logs:
+    driver: bridge
+  cache:
+    driver: bridge
+  main-db:
     driver: bridge
