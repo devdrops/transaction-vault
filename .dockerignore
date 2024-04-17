@@ -1,0 +1,8 @@
+cache
+env
+.git
+.gitignore
+config.json.example
+docker-compose.yml
+Makefile
+*.md
